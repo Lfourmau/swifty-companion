@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+struct campus : Codable{
+    var id : Int
+    var name : String
+}
+struct skill : Codable{
+    var id : Int
+    var name : String
+    var level : Float
+}
 struct intraToken: Codable{
     var access_token : String
     var token_type : String
@@ -37,6 +46,10 @@ struct projectInfo: Codable{
     var project : project
 }
 
+struct cursus : Codable{
+    var level : Float
+    var skills : [skill]
+}
 struct user: Codable{
     var login : String
     var correction_point : Int
@@ -45,6 +58,8 @@ struct user: Codable{
     var id: Int
     var projects_users : [projectInfo]
     var displayname : String
+    var cursus_users : [cursus]
+    var campus : [campus]
 }
 
 struct ContentView: View {
@@ -52,32 +67,41 @@ struct ContentView: View {
     @State var token : String = ""
     @State var showUserInfo : Bool = false
     @State var userToDisplay : user?
+    @State private var isEditing = false
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(alignment: .center) {
                 ZStack{
                     Color("Primary").ignoresSafeArea()
+                    Text("Search a 42 student").font(.system(size: 26, weight: .bold, design: .monospaced)).padding(.bottom, 150)
                     HStack{
-                        TextField("Student login", text: $text)
-                            .frame(width: 260, height: 50)
-                            .padding(.horizontal)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color("myWhite")))
-                            .font(.title.weight(.semibold))
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(Color("Primary"))
-                            .overlay(RoundedRectangle(cornerRadius: 10.0).strokeBorder(Color.black, style: StrokeStyle(lineWidth: 1.0)))
-                        Button(/*@START_MENU_TOKEN@*/"Search"/*@END_MENU_TOKEN@*/, action: {
-                            if (token == ""){
-                                getIntraToken()
+                        TextField("Login of the user ...", text: $text)
+                            .padding(7)
+                            .padding(.vertical,12)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(12)
+                            .padding(.horizontal, 10)
+                            .shadow(color: Color("Shadow"), radius: 15, x:0, y: 0)
+                            .onTapGesture {
+                                self.isEditing = true
                             }
-                            getUserInfo(token: token, input: text)
-                            self.showUserInfo = true
-                        }).padding()
-                            .background(Color("Secondary"))
-                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .foregroundColor(Color("Primary"))
+                        
+                        if isEditing {
+                            Button(action: {
+                                self.isEditing = false
+                                if (token == ""){
+                                        getIntraToken()
+                                    }
+                                    getUserInfo(token: token, input: text)
+                                    self.text = ""
+                                    self.showUserInfo = true
+                            }) {
+                                Text("Search")
+                            }
+                            .padding(.trailing, 10)
+                            .transition(.move(edge: .trailing))
                         }
+                    }
                 }
             }.navigationDestination(isPresented: $showUserInfo) {
                 UserView(userInfos: userToDisplay)

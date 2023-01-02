@@ -17,40 +17,49 @@ struct UserView: View {
                     Image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 250, height: 250)
+                        .frame(width: 200, height: 200)
                         .clipShape(Circle())
                         .shadow(color: Color("Shadow"), radius: 30, x:0, y: 0)
                 } placeholder: {
                     Image("avatar")
                         .resizable()
-                        .frame(width: 250, height: 250)
+                        .frame(width: 200, height: 200)
                         .clipShape(Circle())
+                        .shadow(color: Color("Shadow"), radius: 30, x:0, y: 0)
                 }
                 Text(userInfos!.displayname)
-                    .font(.system(size: 27, weight: .bold, design: .monospaced))
+                    .font(.system(size: 24, weight: .bold, design: .monospaced))
                     .foregroundColor(Color("Secondary"))
                 Text("(\(userInfos!.login))")
-                    .font(.system(size: 25, weight: .bold, design: .monospaced))
+                    .font(.system(size: 22, weight: .bold, design: .monospaced))
                     .foregroundColor(Color("Secondary"))
-                HStack(alignment: .center, spacing: 40.0){
+                Text("Level \(String(userInfos!.cursus_users[1].level))")
+                    .font(.system(size: 15, design: .monospaced))
+                    .foregroundColor(Color("Numbers"))
+                    .padding(.top, 5)
+                HStack(alignment: .center, spacing: 30){
+                    Label(String(userInfos!.campus[0].name), systemImage: "mappin.and.ellipse")
                     HStack{
                         Text("Wallets")
                             .foregroundColor(Color("Secondary"))
                         Text(String(userInfos!.wallet))
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(Color("Numbers"))
                     }
                     HStack{
                         Text("Corr. points")
                             .foregroundColor(Color("Secondary"))
                         Text(String(userInfos!.correction_point))
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(Color("Numbers"))
                     }
                 }
-                .padding(.top)
+                .padding(.vertical)
                 ScrollView(.vertical){
                     VStack (spacing: 5){
-                        ForEach((self.userInfos!.projects_users), id : \.id) { project in
-                            ProjectView(project: project)
+                        Grid{
+                            ForEach((self.userInfos!.projects_users), id : \.id) { project in
+                                    ProjectView(project: project)
+                                Divider()
+                            }
                         }
                     }
                 }
