@@ -76,11 +76,11 @@ struct ContentView: View {
                     Text("Search a 42 student").font(.system(size: 26, weight: .bold, design: .monospaced)).padding(.bottom, 150)
                     HStack{
                         TextField("Login of the user ...", text: $text)
-                            .padding(7)
+                            .padding(10)
                             .padding(.vertical,12)
-                            .background(Color(.systemGray6))
-                            .cornerRadius(12)
-                            .padding(.horizontal, 10)
+                            .background(Color("secondBlue"))
+                            .cornerRadius(20)
+                            .padding(.horizontal, 15)
                             .shadow(color: Color("Shadow"), radius: 15, x:0, y: 0)
                             .onTapGesture {
                                 self.isEditing = true

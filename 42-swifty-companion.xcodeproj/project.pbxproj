@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E15201C32954C8A50089394C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15201C22954C8A50089394C /* UserView.swift */; };
+		E18F662C29662B8C007B34D6 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F662B29662B8C007B34D6 /* SkillView.swift */; };
 		E1A389992954AD5D0064C364 /* _2_swifty_companionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A389982954AD5D0064C364 /* _2_swifty_companionApp.swift */; };
 		E1A3899B2954AD5D0064C364 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A3899A2954AD5D0064C364 /* ContentView.swift */; };
 		E1A3899D2954AD5E0064C364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1A3899C2954AD5E0064C364 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		E15201C22954C8A50089394C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		E18F662B29662B8C007B34D6 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		E1A389952954AD5D0064C364 /* 42-swifty-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "42-swifty-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1A389982954AD5D0064C364 /* _2_swifty_companionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _2_swifty_companionApp.swift; sourceTree = "<group>"; };
 		E1A3899A2954AD5D0064C364 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				E1A389982954AD5D0064C364 /* _2_swifty_companionApp.swift */,
 				E1A3899A2954AD5D0064C364 /* ContentView.swift */,
+				E18F662B29662B8C007B34D6 /* SkillView.swift */,
 				E15201C22954C8A50089394C /* UserView.swift */,
 				E1D0BF4E295DFB7400F7FE03 /* ProjectView.swift */,
 				E1A3899C2954AD5E0064C364 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1A3899B2954AD5D0064C364 /* ContentView.swift in Sources */,
+				E18F662C29662B8C007B34D6 /* SkillView.swift in Sources */,
 				E15201C32954C8A50089394C /* UserView.swift in Sources */,
 				E1D0BF4F295DFB7400F7FE03 /* ProjectView.swift in Sources */,
 				E1A389992954AD5D0064C364 /* _2_swifty_companionApp.swift in Sources */,

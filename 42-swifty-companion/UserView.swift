@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserView: View {
     var userInfos : user?
+    @State var displayProjects : Bool = true
     var body: some View {
         ZStack{
             Color("Primary").ignoresSafeArea()
@@ -53,12 +54,50 @@ struct UserView: View {
                     }
                 }
                 .padding(.vertical)
-                ScrollView(.vertical){
-                    VStack (spacing: 5){
-                        Grid{
-                            ForEach((self.userInfos!.projects_users), id : \.id) { project in
-                                    ProjectView(project: project)
-                                Divider()
+                HStack(){
+                    Button(action: {
+                        self.displayProjects = true
+                    })
+                    {
+                        Text("Projects").padding(.vertical, 7).frame(minWidth: 80)
+                    }.foregroundColor(Color(.white))
+                        .background(self.displayProjects ? Color("Numbers") : Color("noColor")).cornerRadius(25)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.white, lineWidth: 2)
+                                )
+                    Spacer()
+                    Button(action: {
+                        self.displayProjects = false
+                    }) {
+                        Text("Skills").padding(.vertical, 7).frame(minWidth: 80)
+                    }.foregroundColor(Color(.white))
+                        .background(self.displayProjects ? Color("noColor") : Color("Numbers")).cornerRadius(25)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.white, lineWidth: 2)
+                                )
+                }.padding(.horizontal, 90).padding(.vertical)
+                if (self.displayProjects){
+                    ScrollView(.vertical){
+                        VStack (spacing: 5){
+                            Grid{
+                                ForEach((self.userInfos!.projects_users), id : \.id) { project in
+                                        ProjectView(project: project)
+                                    Divider()
+                                }
+                            }
+                        }
+                    }
+                }
+                else{
+                    ScrollView(.vertical){
+                        VStack (spacing: 5){
+                            Grid{
+                                ForEach((self.userInfos!.cursus_users[1].skills), id : \.id) { skill in
+                                        SkillView(skillInfo: skill)
+                                    Divider()
+                                }
                             }
                         }
                     }
