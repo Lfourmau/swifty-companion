@@ -14,5 +14,4 @@ struct _2_swifty_companionApp: App {
             ContentView()
         }
     }
-
 }

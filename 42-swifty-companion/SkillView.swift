@@ -12,7 +12,7 @@ struct SkillView: View {
     var body: some View {
         GridRow{
             Text(skillInfo.name).foregroundColor(Color("Secondary")).gridColumnAlignment(.leading)
-            ProgressView(value: skillInfo.level * 0.1).tint(Color("Numbers"))
+            ProgressView(value: skillInfo.level * 0.1).tint(Color("LightBlue"))
             Text(String(skillInfo.level)).foregroundColor(Color("Secondary")).gridColumnAlignment(.leading)
         }
     }

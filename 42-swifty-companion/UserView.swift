@@ -20,13 +20,13 @@ struct UserView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
-                        .shadow(color: Color("Shadow"), radius: 30, x:0, y: 0)
+                        .shadow(color: Color("LightBlue"), radius: 30, x:0, y: 0)
                 } placeholder: {
                     Image("avatar")
                         .resizable()
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
-                        .shadow(color: Color("Shadow"), radius: 30, x:0, y: 0)
+                        .shadow(color: Color("LightBlue"), radius: 30, x:0, y: 0)
                 }
                 Text(userInfos!.displayname)
                     .font(.system(size: 24, weight: .bold, design: .monospaced))
@@ -36,7 +36,7 @@ struct UserView: View {
                     .foregroundColor(Color("Secondary"))
                 Text("Level \(String(userInfos!.cursus_users[1].level))")
                     .font(.system(size: 15, design: .monospaced))
-                    .foregroundColor(Color("Numbers"))
+                    .foregroundColor(Color("LightBlue"))
                     .padding(.top, 5)
                 HStack(alignment: .center, spacing: 30){
                     Label(String(userInfos!.campus[0].name), systemImage: "mappin.and.ellipse")
@@ -44,13 +44,13 @@ struct UserView: View {
                         Text("Wallets")
                             .foregroundColor(Color("Secondary"))
                         Text(String(userInfos!.wallet))
-                            .foregroundColor(Color("Numbers"))
+                            .foregroundColor(Color("LightBlue"))
                     }
                     HStack{
                         Text("Corr. points")
                             .foregroundColor(Color("Secondary"))
                         Text(String(userInfos!.correction_point))
-                            .foregroundColor(Color("Numbers"))
+                            .foregroundColor(Color("LightBlue"))
                     }
                 }
                 .padding(.vertical)
@@ -61,7 +61,7 @@ struct UserView: View {
                     {
                         Text("Projects").padding(.vertical, 7).frame(minWidth: 80)
                     }.foregroundColor(Color(.white))
-                        .background(self.displayProjects ? Color("Numbers") : Color("noColor")).cornerRadius(25)
+                        .background(self.displayProjects ? Color("LightBlue") : Color("LightBlue").opacity(0)).cornerRadius(25)
                         .overlay(
                                 RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.white, lineWidth: 2)
@@ -72,7 +72,7 @@ struct UserView: View {
                     }) {
                         Text("Skills").padding(.vertical, 7).frame(minWidth: 80)
                     }.foregroundColor(Color(.white))
-                        .background(self.displayProjects ? Color("noColor") : Color("Numbers")).cornerRadius(25)
+                        .background(self.displayProjects ? Color("LightBlue").opacity(0) : Color("LightBlue")).cornerRadius(25)
                         .overlay(
                                 RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.white, lineWidth: 2)

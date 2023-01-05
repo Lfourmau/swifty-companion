@@ -75,41 +75,30 @@ struct ContentView: View {
                     Color("Primary").ignoresSafeArea()
                     Text("Search a 42 student").font(.system(size: 26, weight: .bold, design: .monospaced)).padding(.bottom, 150)
                     HStack{
-                        TextField("Login of the user ...", text: $text)
+                        TextField("Search user", text: $text)
+                            .multilineTextAlignment(.center)
                             .padding(10)
                             .padding(.vertical,12)
                             .background(Color("secondBlue"))
                             .cornerRadius(20)
                             .padding(.horizontal, 15)
-                            .shadow(color: Color("Shadow"), radius: 15, x:0, y: 0)
-                            .onTapGesture {
-                                self.isEditing = true
-                            }
-                        
-                        if isEditing {
-                            Button(action: {
-                                self.isEditing = false
-                                if (token == ""){
-                                        getIntraToken()
-                                    }
-                                    getUserInfo(token: token, input: text)
-                                    self.text = ""
-                                    self.showUserInfo = true
-                            }) {
-                                Text("Search")
-                            }
-                            .padding(.trailing, 10)
-                            .transition(.move(edge: .trailing))
+                            .onSubmit {
+                            getUserInfo(token: token, input: text)
+                            self.text = ""
+                            self.showUserInfo = true
                         }
                     }
                 }
             }.navigationDestination(isPresented: $showUserInfo) {
                 UserView(userInfos: userToDisplay)
             }
-        }
+        }.onAppear(perform: getIntraToken)
     }
     
     func getIntraToken() {
+        if (self.token != ""){
+            return
+        }
         var done : Bool = false
         let url = URL(string: "https://api.intra.42.fr/oauth/token")
         guard let requestUrl = url else { fatalError() }
@@ -143,6 +132,7 @@ struct ContentView: View {
     }
     
     func getUserInfo(token: String, input: String){
+        print("in getUser \(token)")
         var done : Bool = false
         let url = URL(string: "https://api.intra.42.fr/v2/users/" + input.lowercased())
         guard let requestUrl = url else { fatalError() }
@@ -159,7 +149,6 @@ struct ContentView: View {
                 let jsonDecoder = JSONDecoder()
                 do {
                     let parsedJSON = try jsonDecoder.decode(user.self, from: data)
-                    print(parsedJSON)
                     self.userToDisplay = parsedJSON
                 } catch {
                     print(error)

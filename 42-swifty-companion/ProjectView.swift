@@ -13,7 +13,7 @@ struct ProjectView: View {
         GridRow{
             Text(project.project.name).foregroundColor(Color("Secondary")).gridColumnAlignment(.leading)
             Text(project.status).foregroundColor(Color("Secondary")).italic().fontWeight(.thin)
-            Text(project.final_mark != nil ? String(project.final_mark!) : "--").foregroundColor(Color("Numbers"))
+            Text(project.final_mark != nil ? String(project.final_mark!) : "--").foregroundColor(Color("LightBlue"))
         }
     }
 }
