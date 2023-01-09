@@ -34,10 +34,19 @@ struct UserView: View {
                 Text("(\(userInfos!.login))")
                     .font(.system(size: 22, weight: .bold, design: .monospaced))
                     .foregroundColor(Color("Secondary"))
-                Text("Level \(String(userInfos!.cursus_users[1].level))")
-                    .font(.system(size: 15, design: .monospaced))
-                    .foregroundColor(Color("LightBlue"))
-                    .padding(.top, 5)
+                if (userInfos!.cursus_users.count > 1){
+                    Text("Level \(String(userInfos!.cursus_users[1].level))")
+                        .font(.system(size: 15, design: .monospaced))
+                        .foregroundColor(Color("LightBlue"))
+                        .padding(.top, 5)
+                }
+                else{
+                    Text("Piscine level \(String(userInfos!.cursus_users[0].level))")
+                        .font(.system(size: 15, design: .monospaced))
+                        .foregroundColor(Color("LightBlue"))
+                        .padding(.top, 5)
+                }
+                
                 HStack(alignment: .center, spacing: 30){
                     Label(String(userInfos!.campus[0].name), systemImage: "mappin.and.ellipse")
                     HStack{
@@ -94,9 +103,17 @@ struct UserView: View {
                     ScrollView(.vertical){
                         VStack (spacing: 5){
                             Grid{
-                                ForEach((self.userInfos!.cursus_users[1].skills), id : \.id) { skill in
-                                        SkillView(skillInfo: skill)
-                                    Divider()
+                                if (self.userInfos!.cursus_users.count > 1){
+                                    ForEach((self.userInfos!.cursus_users[1].skills), id : \.id) { skill in
+                                            SkillView(skillInfo: skill)
+                                        Divider()
+                                    }
+                                }
+                                else{
+                                    ForEach((self.userInfos!.cursus_users[0].skills), id : \.id) { skill in
+                                            SkillView(skillInfo: skill)
+                                        Divider()
+                                    }
                                 }
                             }
                         }
