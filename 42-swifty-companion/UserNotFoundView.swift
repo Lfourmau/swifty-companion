@@ -16,11 +16,12 @@ struct UserNotFoundView: View {
                 .frame(width: 200, height: 200)
                 .clipShape(Circle())
                 .shadow(color: Color("LightBlue"), radius: 30, x:0, y: 0)
+                .opacity(0.4)
             Text("can't find user")
                 .font(.system(size: 24, weight: .bold, design: .monospaced))
                 .foregroundColor(Color("Secondary"))
                 
-            }.padding()
+            }
         }
 }
 
