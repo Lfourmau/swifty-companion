@@ -45,6 +45,8 @@ struct ContentView: View {
                             self.showUserInfo = true
                         }
                     }
+                }.onAppear{
+                    userToDisplay = nil
                 }
             }.navigationDestination(isPresented: $showUserInfo) {
                 if (userToDisplay?.displayname != nil){
@@ -96,7 +98,7 @@ struct ContentView: View {
     func getUserInfo(token: String, input: String){
         print("in getUser \(token)")
         var done : Bool = false
-        var sanitizedInput : String = input.replacingOccurrences(of: " ", with: "")
+        let sanitizedInput : String = input.replacingOccurrences(of: " ", with: "")
         let url = URL(string: "https://api.intra.42.fr/v2/users/" + sanitizedInput.lowercased())
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object

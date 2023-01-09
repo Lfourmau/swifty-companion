@@ -11,11 +11,13 @@ struct campus : Codable{
     var id : Int
     var name : String
 }
+
 struct skill : Codable{
     var id : Int
     var name : String
     var level : Float
 }
+
 struct intraToken: Codable{
     var access_token : String
     var token_type : String
@@ -35,6 +37,7 @@ struct userImage: Codable{
     var link : String
     var versions : sizes
 }
+
 struct project: Codable{
     var id : Int
     var name : String
