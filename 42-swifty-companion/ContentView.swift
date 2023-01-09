@@ -90,7 +90,12 @@ struct ContentView: View {
                     }
                 }
             }.navigationDestination(isPresented: $showUserInfo) {
-                UserView(userInfos: userToDisplay)
+                if (userToDisplay?.displayname != nil){
+                    UserView(userInfos: userToDisplay)
+                }
+                else {
+                    UserNotFoundView()
+                }
             }
         }.onAppear(perform: getIntraToken)
     }
