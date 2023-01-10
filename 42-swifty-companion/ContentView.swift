@@ -52,7 +52,7 @@ private var client_secret: String {
 
 struct ContentView: View {
     @State private var text = ""
-    @State var token : String = ""
+    @State var token : intraToken?
     @State var showUserInfo : Bool = false
     @State var userToDisplay : user?
     @State private var isEditing = false
@@ -71,7 +71,7 @@ struct ContentView: View {
                             .cornerRadius(20)
                             .padding(.horizontal, 15)
                             .onSubmit {
-                            getUserInfo(token: token, input: text)
+                                getUserInfo(token: token!.access_token, input: text)
                             self.text = ""
                             self.showUserInfo = true
                         }
@@ -91,7 +91,7 @@ struct ContentView: View {
     }
     
     func getIntraToken() {
-        if (self.token != ""){
+        if (self.token != nil && self.token!.expires_in > 60){
             return
         }
         var done : Bool = false
@@ -111,9 +111,9 @@ struct ContentView: View {
                 let jsonDecoder = JSONDecoder()
                 do {
                     let parsedJSON = try jsonDecoder.decode(intraToken.self, from: data)
-                    print("1st \(parsedJSON.access_token)")
-                    self.token = parsedJSON.access_token
-                    print("2nd \(token)")
+                    print("1st \(parsedJSON.expires_in)")
+                    self.token = parsedJSON
+                    print("2nd \(String(describing: token))")
                 } catch {
                     print(error)
                 }
