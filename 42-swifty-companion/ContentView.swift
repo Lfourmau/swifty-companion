@@ -23,7 +23,7 @@ private var client_id: String {
   get {
     // 1
     guard let filePath = Bundle.main.path(forResource: "apiKeys", ofType: "plist") else {
-      fatalError("Couldn't find file 'apiKeys.plist'.")
+      fatalError("Couldn't find file 'apiKeys.plist'. Check the apiKeys-Sample.plist file.")
     }
     // 2
     let plist = NSDictionary(contentsOfFile: filePath)
