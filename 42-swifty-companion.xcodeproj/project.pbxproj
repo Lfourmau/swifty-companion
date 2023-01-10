@@ -16,6 +16,8 @@
 		E1D0BF4F295DFB7400F7FE03 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D0BF4E295DFB7400F7FE03 /* ProjectView.swift */; };
 		E1E59BFD296C30C30080B570 /* UserNotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E59BFC296C30C30080B570 /* UserNotFoundView.swift */; };
 		E1E59BFF296C343B0080B570 /* ApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E59BFE296C343B0080B570 /* ApiTypes.swift */; };
+		EBF8A33C296D3A5200744F52 /* apiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBF8A33B296D3A5200744F52 /* apiKeys.plist */; };
+		EBF8A341296D3E7500744F52 /* apiKeys-Sample.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBF8A340296D3E7500744F52 /* apiKeys-Sample.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E1D0BF4E295DFB7400F7FE03 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		E1E59BFC296C30C30080B570 /* UserNotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotFoundView.swift; sourceTree = "<group>"; };
 		E1E59BFE296C343B0080B570 /* ApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTypes.swift; sourceTree = "<group>"; };
+		EBF8A33B296D3A5200744F52 /* apiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKeys.plist; sourceTree = "<group>"; };
+		EBF8A340296D3E7500744F52 /* apiKeys-Sample.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "apiKeys-Sample.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +71,9 @@
 				E1E59BFC296C30C30080B570 /* UserNotFoundView.swift */,
 				E18F662B29662B8C007B34D6 /* SkillView.swift */,
 				E1E59BFE296C343B0080B570 /* ApiTypes.swift */,
+				EBF8A340296D3E7500744F52 /* apiKeys-Sample.plist */,
 				E15201C22954C8A50089394C /* UserView.swift */,
+				EBF8A33B296D3A5200744F52 /* apiKeys.plist */,
 				E1D0BF4E295DFB7400F7FE03 /* ProjectView.swift */,
 				E1A3899C2954AD5E0064C364 /* Assets.xcassets */,
 				E1A3899E2954AD5E0064C364 /* _2_swifty_companion.entitlements */,
@@ -143,7 +149,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1A389A12954AD5E0064C364 /* Preview Assets.xcassets in Resources */,
+				EBF8A33C296D3A5200744F52 /* apiKeys.plist in Resources */,
 				E1A3899D2954AD5E0064C364 /* Assets.xcassets in Resources */,
+				EBF8A341296D3E7500744F52 /* apiKeys-Sample.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +309,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Lfourmau.-2-swifty-companion";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = lfourmau;
@@ -340,7 +348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.6;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Lfourmau.-2-swifty-companion";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = lfourmau;

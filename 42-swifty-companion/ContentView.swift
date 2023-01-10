@@ -19,6 +19,37 @@ struct user: Codable{
     var campus : [campus]
 }
 
+private var client_id: String {
+  get {
+    // 1
+    guard let filePath = Bundle.main.path(forResource: "apiKeys", ofType: "plist") else {
+      fatalError("Couldn't find file 'apiKeys.plist'.")
+    }
+    // 2
+    let plist = NSDictionary(contentsOfFile: filePath)
+    guard let value = plist?.object(forKey: "CLIENT_ID") as? String else {
+      fatalError("Couldn't find key 'CLIENT_ID' in 'apiKeys'.")
+    }
+    return value
+  }
+}
+
+private var client_secret: String {
+  get {
+    // 1
+    guard let filePath = Bundle.main.path(forResource: "apiKeys", ofType: "plist") else {
+      fatalError("Couldn't find file 'apiKeys.plist'.")
+    }
+    // 2
+    let plist = NSDictionary(contentsOfFile: filePath)
+    guard let value = plist?.object(forKey: "CLIENT_SECRET") as? String else {
+      fatalError("Couldn't find key 'CLIENT_SECRET' in 'apiKeys'.")
+    }
+    return value
+  }
+}
+
+
 struct ContentView: View {
     @State private var text = ""
     @State var token : String = ""
@@ -69,7 +100,7 @@ struct ContentView: View {
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
-        let postString = "grant_type=client_credentials&client_id=u-s4t2ud-32c9b111c399d43e31e905dfb3ebaab6fa19eda176410322a0f188a362cc0b96&client_secret=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";
+        let postString = "grant_type=client_credentials&client_id=\(client_id)&client_secret=\(client_secret)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
