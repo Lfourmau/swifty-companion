@@ -70,11 +70,12 @@ struct ContentView: View {
                             .background(Color("secondBlue"))
                             .cornerRadius(20)
                             .padding(.horizontal, 15)
+                            .disableAutocorrection(true)
                             .onSubmit {
                                 getUserInfo(token: token!.access_token, input: text)
                             self.text = ""
                             self.showUserInfo = true
-                        }
+                            }
                     }
                 }.onAppear{
                     userToDisplay = nil
@@ -111,9 +112,7 @@ struct ContentView: View {
                 let jsonDecoder = JSONDecoder()
                 do {
                     let parsedJSON = try jsonDecoder.decode(intraToken.self, from: data)
-                    print("1st \(parsedJSON.expires_in)")
                     self.token = parsedJSON
-                    print("2nd \(String(describing: token))")
                 } catch {
                     print(error)
                 }
