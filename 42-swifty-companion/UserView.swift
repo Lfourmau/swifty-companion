@@ -69,22 +69,22 @@ struct UserView: View {
                     })
                     {
                         Text("Projects").padding(.vertical, 7).frame(minWidth: 80)
-                    }.foregroundColor(Color(.white))
+                    }.foregroundColor(Color("Buttons"))
                         .background(self.displayProjects ? Color("LightBlue") : Color("LightBlue").opacity(0)).cornerRadius(25)
                         .overlay(
                                 RoundedRectangle(cornerRadius: 25)
-                                    .stroke(Color.white, lineWidth: 2)
+                                    .stroke(Color("Buttons"), lineWidth: 2)
                                 )
                     Spacer()
                     Button(action: {
                         self.displayProjects = false
                     }) {
                         Text("Skills").padding(.vertical, 7).frame(minWidth: 80)
-                    }.foregroundColor(Color(.white))
+                    }.foregroundColor(Color("Buttons"))
                         .background(self.displayProjects ? Color("LightBlue").opacity(0) : Color("LightBlue")).cornerRadius(25)
                         .overlay(
                                 RoundedRectangle(cornerRadius: 25)
-                                    .stroke(Color.white, lineWidth: 2)
+                                    .stroke(Color("Buttons"), lineWidth: 2)
                                 )
                 }.padding(.horizontal, 90).padding(.vertical)
                 if (self.displayProjects){

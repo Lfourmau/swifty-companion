@@ -68,6 +68,7 @@ struct ContentView: View {
                             .padding(10)
                             .padding(.vertical,12)
                             .background(Color("secondBlue"))
+                            .foregroundColor(Color(.white))
                             .cornerRadius(20)
                             .padding(.horizontal, 15)
                             .disableAutocorrection(true)
@@ -126,7 +127,7 @@ struct ContentView: View {
     }
     
     func getUserInfo(token: String, input: String){
-        print("in getUser \(token)")
+        print("Token --> \(token)")
         var done : Bool = false
         let sanitizedInput : String = input.replacingOccurrences(of: " ", with: "")
         let url = URL(string: "https://api.intra.42.fr/v2/users/" + sanitizedInput.lowercased())
