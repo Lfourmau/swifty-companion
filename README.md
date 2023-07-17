@@ -2,6 +2,7 @@
   
 First application made in swift, on which a 42 student can search for another student's information. He thus obtains information such as his level, his name, or his validated projects.   
 The application therefore contains two views and dialogues with the API of 42 to retrieve the information.
+Final mark : 125/100
 
 ## Overview
   <div>
